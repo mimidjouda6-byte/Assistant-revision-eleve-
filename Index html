@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant de révision</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f6ff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: #2563eb;
+    }
+
+    p {
+      color: #444;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #reponse {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef4ff;
+      border-radius: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>📚 Assistant de révision</h1>
+
+    <p>
+      Bienvenue ! Pose ta question et je vais t'aider à réviser.
+    </p>
+
+    <input
+      type="text"
+      id="question"
+      placeholder="Écris ta question ici..."
+    >
+
+    <br>
+
+    <button onclick="repondre()">Poser la question</button>
+
+    <div id="reponse">
+      La réponse apparaîtra ici.
+    </div>
+
+  </div>
+
+  <script>
+    function repondre() {
+
+      let question = document.getElementById("question").value.toLowerCase();
+
+      let reponse = "";
+
+      if (question.includes("math")) {
+        reponse = "📐 Les mathématiques permettent d'étudier les nombres, les formes, les calculs et les relations entre les grandeurs.";
+      }
+
+      else if (question.includes("français")) {
+        reponse = "📖 Le français comprend notamment la grammaire, la conjugaison, l'orthographe et la compréhension de texte.";
+      }
+
+      else if (question.includes("histoire")) {
+        reponse = "🌍 L'histoire étudie les événements et les sociétés du passé afin de mieux comprendre le monde actuel.";
+      }
+
+      else if (question.includes("science")) {
+        reponse = "🔬 Les sciences permettent de comprendre les phénomènes naturels grâce à l'observation et à l'expérimentation.";
+      }
+
+      else if (question.includes("bonjour") || question.includes("salut")) {
+        reponse = "👋 Bonjour ! Je suis ton assistant de révision. Pose-moi une question sur tes cours.";
+      }
+
+      else {
+        reponse = "🤖 Je suis encore en cours d'apprentissage. Essaie de poser une question sur les mathématiques, le français, l'histoire ou les sciences.";
+      }
+
+      document.getElementById("reponse").innerHTML = reponse;
+    }
+  </script>
+
+</body>
+</html>
